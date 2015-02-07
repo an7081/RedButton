@@ -31,14 +31,14 @@ public class score : MonoBehaviour
     {
         //print(theScore);
 
-        if (OnWin && _blurLevel<=0.5f)
+        if (OnWin && _blurLevel<=0.50f)
         {
-            _blurLevel += 0.01f;
+            _blurLevel += 0.10f;
             MainCam.GetComponent<DepthOfFieldScatter>().aperture += _blurLevel;
             //finalScore.text = (theScore.ToString());
         }
 
-        else if (_blurLevel >= 0.5f)
+        else if (_blurLevel >= 0.50f)
         {
             anim.SetTrigger("OnWin");
         }
