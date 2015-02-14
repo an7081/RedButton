@@ -1445,15 +1445,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 5bd1d42c1743e477e87e1f0091c0f03d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -.899999976
+      value: 2.4000001
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5bd1d42c1743e477e87e1f0091c0f03d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40.2999992
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5bd1d42c1743e477e87e1f0091c0f03d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -44.7999992
+      value: 29.8999996
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5bd1d42c1743e477e87e1f0091c0f03d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1779,7 +1779,7 @@ Transform:
   m_PrefabInternal: {fileID: 69409213}
   m_GameObject: {fileID: 153489960}
   m_LocalRotation: {x: -7.12147355e-15, y: -1.62920315e-07, z: 1, w: -4.37113883e-08}
-  m_LocalPosition: {x: -.899999976, y: 40.2999992, z: -44.7999992}
+  m_LocalPosition: {x: 2.4000001, y: -10, z: 29.8999996}
   m_LocalScale: {x: 1.15106738, y: 1.61094213, z: 1.6741842}
   m_Children:
   - {fileID: 1781201069}
@@ -2917,8 +2917,8 @@ AudioSource:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
-      value: 0
+    - time: .583333373
+      value: -.0937499925
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3690,7 +3690,7 @@ Transform:
   m_PrefabInternal: {fileID: 898935353}
   m_GameObject: {fileID: 430696911}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.7000008, y: -36.7999992, z: -.300000012}
+  m_LocalPosition: {x: -45.5999985, y: -36.7999992, z: -.300000012}
   m_LocalScale: {x: .761934161, y: .913204312, z: .761933744}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4050,6 +4050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1292548360}
+  musicAnim: {fileID: 696613010}
   acceptInput: 1
   timer: 0
   buttonPresses: 0
@@ -4192,6 +4193,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 696613007}
   - 82: {fileID: 696613006}
+  - 165: {fileID: 696613009}
+  - 169: {fileID: 696613008}
+  - 95: {fileID: 696613010}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -4207,7 +4211,7 @@ AudioSource:
   m_GameObject: {fileID: 696613005}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 0528c75beb4b1b84282c88cde429fc97, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 50ec661b5e0d3b74d99c5b2328bce955, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4269,6 +4273,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 20
+--- !u!169 &696613008
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 696613005}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_CutoffFrequency: 22000
+  m_LowpassResonanceQ: 2
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .969818175
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!165 &696613009
+AudioHighPassFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 696613005}
+  m_Enabled: 1
+  m_CutoffFrequency: 600
+  m_HighpassResonanceQ: 3
+--- !u!95 &696613010
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 696613005}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68b7bd25a06b86644821187fba38f951, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &724723646
 GameObject:
   m_ObjectHideFlags: 0
@@ -5846,7 +5894,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 631326fa47c004e32bd6e064bd207da7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -45.7000008
+      value: -45.5999985
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 631326fa47c004e32bd6e064bd207da7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6638,6 +6686,7 @@ GameObject:
   - 20: {fileID: 1240089920}
   - 222: {fileID: 1240089923}
   - 114: {fileID: 1240089921}
+  - 114: {fileID: 1240089917}
   m_Layer: 0
   m_Name: isocamera
   m_TagString: MainCamera
@@ -6693,6 +6742,19 @@ MonoBehaviour:
   button: {fileID: 0}
   Intercom: {fileID: 0}
   Music: {fileID: 0}
+--- !u!114 &1240089917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1240089915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd732fb44d34b94499d898ade1175074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: ce9a06ac4ede6f84ab1865b7d32f204c, type: 3}
+  VHS: {fileID: 15200000, guid: 324a486eb541aa848884bad1ebd7b5e6, type: 3}
 --- !u!124 &1240089918
 Behaviour:
   m_ObjectHideFlags: 0
@@ -9403,7 +9465,7 @@ GameObject:
   - 4: {fileID: 2005497892}
   - 81: {fileID: 2005497891}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: AudioListener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

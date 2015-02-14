@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class score : MonoBehaviour
 {
     public Animator anim;
+    public Animator musicAnim;
 
     public bool acceptInput = true;
     public static bool OnWin = false;
@@ -31,14 +32,15 @@ public class score : MonoBehaviour
     {
         //print(theScore);
 
-        if (OnWin && _blurLevel<=0.50f)
+        if (OnWin && _blurLevel<=1.50f)
         {
-            _blurLevel += 0.10f;
+            _blurLevel += 0.05f;
             MainCam.GetComponent<DepthOfFieldScatter>().aperture += _blurLevel;
+            musicAnim.SetTrigger("audioDullout_Win");
             //finalScore.text = (theScore.ToString());
         }
 
-        else if (_blurLevel >= 0.50f)
+        else if (_blurLevel >= 1.50f)
         {
             anim.SetTrigger("OnWin");
         }
