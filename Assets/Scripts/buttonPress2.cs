@@ -18,7 +18,7 @@ public class buttonPress2 : MonoBehaviour {
 		if (other.tag == "Player") {
 			anim.SetTrigger("pressed");
 
-			other.rigidbody.AddForce( Vector3.forward * 2000);
+			other.GetComponent<Rigidbody>().AddForce( Vector3.forward * 2000);
 		}
 	}
 }

@@ -17,7 +17,7 @@ public class buttonPress : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
 			anim.SetTrigger("pressed");
-            other.rigidbody.AddForce( Vector3.forward * 2000);
+            other.GetComponent<Rigidbody>().AddForce( Vector3.forward * 2000);
 		    Debug.Log("Win!");
 		    StartCoroutine(buttonPause());
 

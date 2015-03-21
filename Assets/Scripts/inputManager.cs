@@ -232,35 +232,35 @@ public class inputManager : MonoBehaviour
         {
             case 1: //JUMP
                 print(theNumber);
-				player.rigidbody.AddForce (Vector3.up * 100 * multi);
+				player.GetComponent<Rigidbody>().AddForce (Vector3.up * 100 * multi);
 				print ("global jump");
                 break;
 
             case 2: //MOVE
                 print(theNumber);
-				player.rigidbody.AddRelativeForce (Vector3.back * 100 * multi);
+				player.GetComponent<Rigidbody>().AddRelativeForce (Vector3.back * 100 * multi);
 				print ("local back");
                 break;
            
 			case 3:
                 print(theNumber);
-				player.rigidbody.AddRelativeForce (Vector3.up * 100 * multi);
+				player.GetComponent<Rigidbody>().AddRelativeForce (Vector3.up * 100 * multi);
 				print ("global jump");	
                 break;
             
 			case 4:
                 print(theNumber);
-				player.rigidbody.AddRelativeTorque (Vector3.up * 200);
+				player.GetComponent<Rigidbody>().AddRelativeTorque (Vector3.up * 200);
 				print ("local jump");
                 break;
             
 			case 5:
                 print(theNumber);
-				if (player.rigidbody.freezeRotation == false) {
-					player.rigidbody.freezeRotation = true;
+				if (player.GetComponent<Rigidbody>().freezeRotation == false) {
+					player.GetComponent<Rigidbody>().freezeRotation = true;
 					print ("topplelock engaged");
 				} else {
-					player.rigidbody.freezeRotation = false;
+					player.GetComponent<Rigidbody>().freezeRotation = false;
                 	
 				}
 				break;
@@ -435,7 +435,7 @@ public class inputManager : MonoBehaviour
                 break;
             case 23:
                 print(theNumber);
-				player.rigidbody.AddExplosionForce(1000,this.transform.position,500.0f,3.0f);
+				player.GetComponent<Rigidbody>().AddExplosionForce(1000,this.transform.position,500.0f,3.0f);
 				print ("Explode");
                 break;
             case 24:

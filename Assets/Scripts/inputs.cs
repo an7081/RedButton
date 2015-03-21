@@ -106,7 +106,7 @@ public class inputs : MonoBehaviour
 			audio.Play();
 				}*/
 		if (Input.anyKeyDown) {
-			audio.PlayOneShot(keyclick[Random.Range(0,keyclick.Length)]);
+			GetComponent<AudioSource>().PlayOneShot(keyclick[Random.Range(0,keyclick.Length)]);
 				}
 		int theNumber = 0;
 		
@@ -265,16 +265,16 @@ public class inputs : MonoBehaviour
 		{
 		case 1: //JUMP
 			print(theNumber);
-			Player.rigidbody.AddRelativeForce (Vector3.forward * moveforce * multi);
+			Player.GetComponent<Rigidbody>().AddRelativeForce (Vector3.forward * moveforce * multi);
 			print ("local back ");
-			audio.PlayOneShot(keyclick[Random.Range(0,keyclick.Length)]);
+			GetComponent<AudioSource>().PlayOneShot(keyclick[Random.Range(0,keyclick.Length)]);
 
 			buttonStatus("moveBack();");
 			break;
 			
 		case 2: //MOVE
 			print(theNumber);
-			Player.rigidbody.AddRelativeForce (Vector3.back * 500 * multi);
+			Player.GetComponent<Rigidbody>().AddRelativeForce (Vector3.back * 500 * multi);
 			print ("local forward");
 
 			buttonStatus("moveForward();");
@@ -282,7 +282,7 @@ public class inputs : MonoBehaviour
 			
 		case 3:
 			print(theNumber);
-			Player.rigidbody.AddRelativeForce (Vector3.up * 500 * multi);
+			Player.GetComponent<Rigidbody>().AddRelativeForce (Vector3.up * 500 * multi);
 			print ("local jump");	
 
 			buttonStatus("doJump();");
@@ -290,7 +290,7 @@ public class inputs : MonoBehaviour
 			
 		case 4:
 			print(theNumber);
-			Player.rigidbody.AddRelativeTorque (Vector3.up * 700 * multi);
+			Player.GetComponent<Rigidbody>().AddRelativeTorque (Vector3.up * 700 * multi);
 			print ("local spin");
 
 			buttonStatus("toggleSpin();");
@@ -298,11 +298,11 @@ public class inputs : MonoBehaviour
 			
 		case 5:
 			print(theNumber);
-			if (Player.rigidbody.freezeRotation == false) {
-				Player.rigidbody.freezeRotation = true;
+			if (Player.GetComponent<Rigidbody>().freezeRotation == false) {
+				Player.GetComponent<Rigidbody>().freezeRotation = true;
 				print ("topplelock engaged");
 			} else {
-				Player.rigidbody.freezeRotation = false;
+				Player.GetComponent<Rigidbody>().freezeRotation = false;
 				
 			}
 
@@ -529,7 +529,7 @@ public class inputs : MonoBehaviour
 			break;
 		case 23:
 			print(theNumber);
-			Player.rigidbody.AddExplosionForce(1000,this.transform.position,500.0f,3.0f);
+			Player.GetComponent<Rigidbody>().AddExplosionForce(1000,this.transform.position,500.0f,3.0f);
 			print ("Explode");
 
 			buttonStatus("theForce();");
@@ -602,12 +602,12 @@ public class inputs : MonoBehaviour
 
 		case 28:
 			if (!isInvis){
-				GameObject.FindGameObjectWithTag("Player").renderer.material = invisMaterial;
+				GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>().material = invisMaterial;
 				isInvis = !isInvis;
 
 				buttonStatus("activeCamo enabled;");
 			} else {
-				GameObject.FindGameObjectWithTag("Player").renderer.material = originalMaterial;
+				GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>().material = originalMaterial;
 				isInvis = !isInvis;
 				buttonStatus("activeCamo disabled;");
 			}
@@ -623,19 +623,19 @@ public class inputs : MonoBehaviour
 				int num = Random.Range(0,objects2.Length);
 				Vector3 pos = objects2[num].transform.position;
 				foreach(GameObject obj in objects2){
-					if (obj.transform.gameObject.GetComponent<MeshCollider>() != null) {
+					//if (obj.transform.gameObject.GetComponent<MeshCollider>() != null) {
 						
-						obj.transform.gameObject.GetComponent<MeshFilter>().mesh = buttonMesh;
-						obj.transform.gameObject.renderer.material = buttonMaterial;
-						obj.transform.gameObject.GetComponent<MeshCollider>().mesh = buttonMesh;
+						//obj.transform.gameObject.GetComponent<MeshFilter>().mesh = buttonMesh;
+						//obj.transform.gameObject.GetComponent<Renderer>().material = buttonMaterial;
+						//obj.transform.gameObject.GetComponent<MeshCollider>().mesh = buttonMesh;
 						
-						obj.transform.localScale = new Vector3 (40.2f, 40.2f, 10.12f);
-						obj.transform.gameObject.rigidbody.AddForce(Vector3.up * 20);
-					}
+						//obj.transform.localScale = new Vector3 (40.2f, 40.2f, 10.12f);
+						//obj.transform.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 20);
+					//}
 				}
 				
-				GameObject.FindGameObjectWithTag("Button").rigidbody.isKinematic = false;
-				GameObject.FindGameObjectWithTag("Button").rigidbody.AddForce(Vector3.forward * 10);
+				GameObject.FindGameObjectWithTag("Button").GetComponent<Rigidbody>().isKinematic = false;
+				GameObject.FindGameObjectWithTag("Button").GetComponent<Rigidbody>().AddForce(Vector3.forward * 10);
 			}
 
 			buttonStatus("fuckYou();");
@@ -690,7 +690,7 @@ public class inputs : MonoBehaviour
 			
 		case 36:
 			print(theNumber);
-			Player.rigidbody.AddRelativeTorque (Vector3.right * 800);
+			Player.GetComponent<Rigidbody>().AddRelativeTorque (Vector3.right * 800);
 			print ("local spin forward");
 
 			buttonStatus("doABarrelRoll();");
@@ -706,7 +706,7 @@ public class inputs : MonoBehaviour
 						GameObject.FindGameObjectWithTag ("Room").transform.Rotate (Vector3.right * Time.deltaTime * 10 * multi);
 
 		if (jetpack == true)
-						Player.rigidbody.AddRelativeForce (Vector3.up * 700 * multi);	
+						Player.GetComponent<Rigidbody>().AddRelativeForce (Vector3.up * 700 * multi);	
 
 	}
 	

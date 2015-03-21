@@ -48,10 +48,10 @@ public class testScript : MonoBehaviour {
 
 	void makeInvisible(){
 		if (!isInvis){
-			GameObject.FindGameObjectWithTag("Player").renderer.material = invisMaterial;
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>().material = invisMaterial;
 			isInvis = !isInvis;
 		} else {
-			GameObject.FindGameObjectWithTag("Player").renderer.material = originalMaterial;
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>().material = originalMaterial;
 			isInvis = !isInvis;
 		}
 	}
@@ -66,19 +66,19 @@ public class testScript : MonoBehaviour {
 			int num = Random.Range(0,objects.Length);
 			Vector3 pos = objects[num].transform.position;
 			foreach(GameObject obj in objects){
-				if (obj.transform.gameObject.GetComponent<MeshCollider>() != null) {
+				//if (obj.transform.gameObject.GetComponent<MeshCollider>() != null) {
 
-				obj.transform.gameObject.GetComponent<MeshFilter>().mesh = buttonMesh;
-				obj.transform.gameObject.renderer.material = buttonMaterial;
-				obj.transform.gameObject.GetComponent<MeshCollider>().mesh = buttonMesh;
+				//obj.transform.gameObject.GetComponent<MeshFilter>().mesh = buttonMesh;
+				//obj.transform.gameObject.GetComponent<Renderer>().material = buttonMaterial;
+				//obj.transform.gameObject.GetComponent<MeshCollider>().mesh = buttonMesh;
 		
-				obj.transform.localScale = new Vector3 (40.2f, 40.2f, 10.12f);
-					obj.transform.gameObject.rigidbody.AddForce(Vector3.up * 20);
-				}
+				//obj.transform.localScale = new Vector3 (40.2f, 40.2f, 10.12f);
+				//	obj.transform.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 20);
+				//}
 			}
 
-			GameObject.FindGameObjectWithTag("Button").rigidbody.isKinematic = false;
-			GameObject.FindGameObjectWithTag("Button").rigidbody.AddForce(Vector3.forward * 10);
+			GameObject.FindGameObjectWithTag("Button").GetComponent<Rigidbody>().isKinematic = false;
+			GameObject.FindGameObjectWithTag("Button").GetComponent<Rigidbody>().AddForce(Vector3.forward * 10);
 		}
 	}
 

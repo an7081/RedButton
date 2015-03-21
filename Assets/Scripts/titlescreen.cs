@@ -13,7 +13,7 @@ public class titlescreen : MonoBehaviour
 	void Start ()
 	{
 
-        renderer.material.mainTexture = introMovie;
+        GetComponent<Renderer>().material.mainTexture = introMovie;
         introMovie.Play();
 	    //introMovie.loop = loop;
 
